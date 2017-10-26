@@ -23,11 +23,11 @@ execute "install nodejs sources" do
 	command "sh /tmp/node_installer"
 end
 
-execute "install pm2" do
-	command "npm install pm2 -g"
-end
-
 package 'nodejs' do
 	action :upgrade
+end
+
+execute "install pm2" do
+	command "npm install pm2 -g"
 end
 
