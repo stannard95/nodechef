@@ -31,12 +31,12 @@ execute "install pm2" do
 	command "npm install pm2 -g"
 end
 
-link '/home/ubuntu/devop/environment/app/reverse-proxy.conf' do
+link '/environment/app/reverse-proxy.conf' do
 	to '/etc/nginx/sites-available'
 
 end
 
-link '/home/ubuntu/environment/app/reverse-proxy.conf' do
+link '/environment/app/reverse-proxy.conf' do
 	to '/etc/nginx/sites-available'
 end
 
