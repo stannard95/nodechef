@@ -31,3 +31,11 @@ execute "install pm2" do
 	command "npm install pm2 -g"
 end
 
+template '/etc/nginx/sites-available/default' do
+  source 'reverse-proxy.conf.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+  notifies :before
+end
+
