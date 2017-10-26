@@ -45,7 +45,6 @@ template '/etc/nginx/sites-available' do
   owner 'root'
   group 'root'
   mode '0755'
-  notifies :before
 end
 
 link '/etc/nginx/sites-available/reverse-proxy.conf' do
