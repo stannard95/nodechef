@@ -29,24 +29,24 @@ end
 
 execute "install pm2" do
 	command "npm install pm2 -g"
-end
+# end
 
-link '/environment/app/reverse-proxy.conf' do
-	to '/etc/nginx/sites-available'
+# link '/environment/app/reverse-proxy.conf' do
+# 	to '/etc/nginx/sites-available'
 
-end
+# end
 
-link '/environment/app/reverse-proxy.conf' do
-	to '/etc/nginx/sites-available'
-end
+# link '/environment/app/reverse-proxy.conf' do
+# 	to '/etc/nginx/sites-available'
+# end
 
-template '/etc/nginx/sites-available' do
-  source 'reverse-proxy.conf.erb'
-  owner 'root'
-  group 'root'
-  mode '0755'
-end
+# template '/etc/nginx/sites-available' do
+#   source 'reverse-proxy.conf.erb'
+#   owner 'root'
+#   group 'root'
+#   mode '0755'
+# end
 
-link '/etc/nginx/sites-available/reverse-proxy.conf' do
-	to '/etc/nginx/sites-enabled/reverse-proxy.conf'
-end
+# link '/etc/nginx/sites-available/reverse-proxy.conf' do
+# 	to '/etc/nginx/sites-enabled/reverse-proxy.conf'
+# end
