@@ -46,5 +46,22 @@ describe 'node-server::default' do
     it 'install nodejs' do
       expect(chef_run).to upgrade_package 'nodejs'
     end
+
+    it 'apt update' do
+      expect(chef_run).to update_apt_update 'update'
+    end
+
+    it 'expect to make template sites-available' do
+      expect(chef_run).to create_template '/etc/nginx/sites-available'
+      template = chef_run.template('reverse-proxy.conf.erb')
+    end
+
+    it 'reverse proxy to available' do
+      expect(chef_run).to create_link('/etc/nginx/sites-available/reverse-proxy.conf').with(to: '/etc/nginx/sites-enabled/reverse-proxy.conf')
+    end 
+
+    it 'delete default' do
+      expect(chef_run).to delete_link('/etc/nginx/sites-enabled/default')
+    end
   end
 end
